@@ -7,14 +7,14 @@ library(dplyr)
 library(writexl)
 
 #Inséré le fichier excel 
-isere_tourisme <- read_excel("isere_tourisme.xlsx")
-#View(isere_tourisme)
+isere_tourisme <- read_excel("00_data_init/isere_tourisme.xlsx")
+View(isere_tourisme)
 
 
 # Liste des valeurs uniques de la colonne type
-types_uniques <- unique(isere_tourisme$type)
+types_list <- unique(isere_tourisme$type)
 # Afficher la liste
-print(types_uniques)
+print(types_list)
 
 # Création de la nouvelle colonne
 df <- isere_tourisme %>%
