@@ -10,7 +10,7 @@ library(dplyr)
 library(writexl)
 
 #Inséré le fichier excel ----
-isere_tourisme <- read_excel("00_data_init/isere_tourisme.xlsx")
+isere_tourisme <- read_excel("00_data_init/isere_tourisme_insee.xlsx")
 View(isere_tourisme)
 
 
@@ -200,7 +200,7 @@ df <- isere_tourisme %>%
       
       TRUE ~ "Non classé"
     )
-  )c
+  )
 # Voir si il y a des type non classé
 df %>%
   filter(type_regroupe == "Non classé") %>%
@@ -208,4 +208,4 @@ df %>%
 
 
 # Export ----
-write_xlsx(df, "00_data_init/isere_tourisme2.xlsx")
+write_xlsx(df, "00_data_init/isere_tourisme_insee2.xlsx")

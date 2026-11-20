@@ -13,13 +13,13 @@ library(matrixStats)
 
 
 #Ouvrir le fichier excel ----
-isere_tourisme <- read_excel("00_data_init/isere_tourisme2.xlsx")
+isere_tourisme <- read_excel("00_data_init/isere_tourisme_insee2.xlsx")
 View(isere_tourisme)
 
 #Count de chaque type d'activité par commune
 communes_stats <- isere_tourisme %>%
-  count(commune, code_postal, type_regroupe) %>%
-  pivot_wider(
+  dplyr::count(commune, INSEE_COM, type_regroupe) %>%
+  tidyr::pivot_wider(
     names_from = type_regroupe,
     values_from = n,
     values_fill = 0
