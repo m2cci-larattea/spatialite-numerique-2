@@ -189,13 +189,20 @@ df <- isere_tourisme %>%
         "Complexe de loisirs multiactivités",
         "Remontées mécaniques / téléphériques",
         "Domaine public",
-        "Gestion privée"
+        "Gestion privée",
+        "Piste de descente",
+        "Salle de billard", 
+        "Aire de pique-nique"
       ) ~ "Loisirs, culture, tourisme et équipements",
       
       TRUE ~ "Non classé"
     )
   )
 
+# Voir si il y a des type non classé
+df %>%
+  filter(type_regroupe == "Non classé") %>%
+  count(type, sort = TRUE)
 
 
 # Export
