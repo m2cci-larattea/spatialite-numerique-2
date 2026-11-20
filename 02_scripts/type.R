@@ -19,7 +19,7 @@ types_list <- unique(isere_tourisme$type)
 # Afficher la liste
 print(types_list)
 
-# Création de la nouvelle colonne
+# Création de la nouvelle colonne (classe avec l'IA)
 df <- isere_tourisme %>%
   mutate(
     type_regroupe = case_when(
