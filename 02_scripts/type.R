@@ -1,12 +1,15 @@
-## Script qui permet de crée une colone type2 pour simplifier la colonne déja existante type
+---------------------------------------------------------
+##### Faire une version simplifier de la colonne "type"
+---------------------------------------------------------
 
-# Packages 
-#install.packages("writexl")
+
+# Packages ----
+  #install.packages("writexl")
 library(readxl)
 library(dplyr)
 library(writexl)
 
-#Inséré le fichier excel 
+#Inséré le fichier excel ----
 isere_tourisme <- read_excel("00_data_init/isere_tourisme.xlsx")
 View(isere_tourisme)
 
@@ -197,13 +200,12 @@ df <- isere_tourisme %>%
       
       TRUE ~ "Non classé"
     )
-  )
-
+  )c
 # Voir si il y a des type non classé
 df %>%
   filter(type_regroupe == "Non classé") %>%
   count(type, sort = TRUE)
 
 
-# Export
-write_xlsx(df, "mon_fichier_avec_types_regroupes.xlsx")
+# Export ----
+write_xlsx(df, "00_data_init/isere_tourisme2.xlsx")
